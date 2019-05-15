@@ -22,7 +22,12 @@ $finder = Finder::create()
 
 foreach ($finder as $file) {
     $template = file_get_contents($file->getRealPath());
-    $writeTo  = sprintf('%s/Makefile', dirname($file->getRealPath()));
+    $writeTo  = sprintf(
+        '%s/Makefile',
+        dirname(
+            dirname($file->getRealPath())
+        )
+    );
 
     echo sprintf('Updating %s', $writeTo) . PHP_EOL;
 
