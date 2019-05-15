@@ -1,0 +1,2 @@
+all:
+	@cat Makefile | grep "^[a-z]" | sed 's/://' | awk '{print $$1}'

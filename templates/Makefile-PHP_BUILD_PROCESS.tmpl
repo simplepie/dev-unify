@@ -1,0 +1,19 @@
+.PHONY: install-composer
+install-composer:
+	- SUDO="" && [[ $$UID -ne 0 ]] && SUDO="sudo"; \
+	curl -sSL https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer \
+	    | $$SUDO $$(which php) -- --install-dir=/usr/local/bin --filename=composer
+
+.PHONY: install
+install:
+	composer self-update
+	composer install -oa
+
+.PHONY: dump
+dump:
+	composer dump-autoload -oa
+
+.PHONY: install-hooks
+install-hooks:
+	printf '#!/usr/bin/env bash\nmake lint\nmake test' > .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
