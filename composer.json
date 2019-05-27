@@ -10,12 +10,12 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
-        "php": null,
         "bramus/monolog-colored-line-formatter": "^3.0",
         "friendsofphp/php-cs-fixer": "^2.14",
         "mamuz/php-dependency-analysis": "dev-master",
         "monolog/monolog": "^1.24",
         "pdepend/pdepend": "^2.5",
+        "php": null,
         "php-coveralls/php-coveralls": "^2.0",
         "phploc/phploc": "^5.0",
         "phpmetrics/phpmetrics": "^2.4",
@@ -32,5 +32,6 @@
     "suggest": {
         "bramus/monolog-colored-line-formatter": "Color-codes your Monolog messages by severity.",
         "monolog/monolog": "A high-quality PSR-3 logging library."
-    }
+    },
+    "readme": "README.md"
 }

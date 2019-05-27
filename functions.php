@@ -90,3 +90,25 @@ function composersort(&$array): void
     // Replace the old array with the new one
     $array = $master;
 }
+
+/**
+ * Strips the `.tmpl` from the template filename.
+ *
+ * @param string $s The template filename.
+ */
+function strip_tmpl($s): string
+{
+    return str_replace('.tmpl', '', $s);
+}
+
+/**
+ * Gets the template ID for the filename.
+ *
+ * @param string $s The template filename.
+ */
+function get_tmpl($s): string
+{
+    $a = explode('.', $s);
+
+    return array_shift($a);
+}

@@ -1,0 +1,66 @@
+#! /usr/bin/env php
+<?php
+declare(strict_types=1);
+\error_reporting(-1);
+
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/functions.php';
+
+use Symfony\Component\Finder\Finder;
+
+
+//******************************************************************************
+// Update files
+
+$__files__ = [
+    'README.md.tmpl',
+    'Makefile.tmpl',
+];
+
+foreach ($__files__ as $__f__) {
+    $finder = Finder::create()
+        ->files()
+        ->name($__f__)
+        ->depth('< 3')
+        ->in(dirname(__DIR__))
+        ->in(dirname(__DIR__) . '/.github')
+        ->notPath('vendor')
+    ;
+
+    foreach ($finder as $file) {
+        $template = file_get_contents($file->getRealPath());
+        $writeTo  = sprintf(
+            '%s/%s',
+            dirname(
+                dirname($file->getRealPath())
+            ),
+            strip_tmpl($__f__)
+        );
+
+        echo sprintf('Updating %s', $writeTo) . PHP_EOL;
+
+        $contents = preg_replace_callback('/@@([^@]+)@@/S', function(array $matches) use (&$__f__): string {
+            [$tag, $directive] = $matches;
+            $variables = explode(';', $directive);
+            $file = array_shift($variables);
+
+            $tmpl = trim(
+                file_get_contents(
+                    sprintf('%s/templates/%s-%s.tmpl', __DIR__, get_tmpl($__f__), $file)
+                )
+            );
+
+            foreach ($variables as $var) {
+                [$k, $v] = explode('=', $var);
+                $tmpl    = str_replace(sprintf('@@%s@@', strtoupper($k)), $v, $tmpl);
+            }
+
+            return $tmpl;
+        }, $template, -1) . PHP_EOL;
+
+        // Write the file back to disk
+        file_put_contents($writeTo, $contents);
+    }
+
+    unset($finder);
+}
