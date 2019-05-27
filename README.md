@@ -6,6 +6,8 @@
 
 Tools for maintaining a unified SimplePie development environment.
 
+> **NOTE:** Consistency in the SimplePie _community_ (e.g., issue templates, code of conduct, security reporting) is managed in [simplepie/.github](https://github.com/simplepie/.github).
+
 ## What is this and why should I care?
 
 This repo is intended for _developers of SimplePie_ and is not useful for _consumers_ of SimplePie. As new chunks of functionality are developed to replace the old SimplePie codebase, we want to ensure that the _way_ they are developed shares a certain uniformity.
@@ -31,7 +33,7 @@ Composer Schema is documented at <https://getcomposer.org/doc/04-schema.md>.
 
 ### `Makefile`
 
-TBD
+There are certain parts of the project `Makefile` which are fairly standardized. Tags (which begin and end with `@@`) are replaced with the latest contents of the templates defined here.
 
 ### `.phpcs.dist`
 
