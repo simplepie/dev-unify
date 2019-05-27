@@ -1,3 +1,7 @@
+<div align="center"><img src="https://raw.githubusercontent.com/simplepie/.github/master/logo.png" width="500"><br></div>
+
+----
+
 # SimplePie “Unify”
 
 Tools for maintaining a unified SimplePie development environment.
