@@ -26,19 +26,19 @@ Composer Schema is documented at <https://getcomposer.org/doc/04-schema.md>.
 | `license` | Always set to [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). |
 | `minimum-stability` | Allow us to specify a single package as `dev` without impacting the other packages, as per `prefer-stable`. |
 | `prefer-stable` | Always _prefer_ stable versions, even when `minimum-stability` is set to `dev`. |
+| `readme` | `README.md` |
 | `require-dev` | A standard set of packages that are shared across all projects for development purposes. |
 | `require` | Set the supported PHP versions + any packages that are shared across all projects. Custom sorted as `php` first, then `ext-`, then `lib-`, then other packages. |
 | `suggest` | Any packages which can be _suggested_ by all projects. Monolog and PSR packages are good examples of this. |
 | `type` | Always set to `library`. |
 
-### `Makefile`
-
-There are certain parts of the project `Makefile` which are fairly standardized. Tags (which begin and end with `@@`) are replaced with the latest contents of the templates defined here.
-
-### `.phpcs.dist`
-
-TBD
-
 ### Static Files
 
-TBD
+There are certain parts of the project which are fairly standardized. Tags (which begin and end with `@@`) are replaced with the latest contents of the templates defined here.
+
+* `Makefile`
+* `README.md`
+
+### Configuration Files
+
+* `.phpcs.dist`

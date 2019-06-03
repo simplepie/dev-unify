@@ -1,0 +1,47 @@
+#! /usr/bin/env php
+<?php
+declare(strict_types=1);
+\error_reporting(-1);
+
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/functions.php';
+
+use Symfony\Component\Finder\Finder;
+
+
+//******************************************************************************
+// Update files
+
+$finder = Finder::create()
+    ->ignoreDotFiles(false)
+    ->files()
+    ->name('.lang-php')
+    ->depth('< 2')
+    ->in(dirname(__DIR__))
+    ->notPath('vendor')
+;
+
+$statics = Finder::create()
+    ->files()
+    ->name('*.tmpl')
+    ->depth('< 1')
+    ->in(__DIR__ . '/static')
+;
+
+foreach ($statics as $static) {
+    $source   = $static->getRealPath();
+    $destFile = preg_replace('/^_/', '.', strip_tmpl($static->getFilename()));
+
+    // Read the content from disk once
+    $content = file_get_contents($source);
+    echo sprintf('Reading from %s…', $source) . PHP_EOL;
+
+    // Write the content multiple times
+    foreach ($finder as $file) {
+        $dirRoot = dirname($file->getRealPath());
+        $dirPath = sprintf('%s/%s', $dirRoot, $destFile);
+        file_put_contents($dirPath, $content);
+
+        echo sprintf('Writing to %s…', $dirPath) . PHP_EOL;
+    }
+}

@@ -15,6 +15,7 @@ use Symfony\Component\Finder\Finder;
 $__files__ = [
     'README.md.tmpl',
     'Makefile.tmpl',
+    '_php_cs.dist.tmpl',
 ];
 
 foreach ($__files__ as $__f__) {
@@ -34,7 +35,7 @@ foreach ($__files__ as $__f__) {
             dirname(
                 dirname($file->getRealPath())
             ),
-            strip_tmpl($__f__)
+            preg_replace('/^_/', '.', strip_tmpl($__f__))
         );
 
         echo sprintf('Updating %s', $writeTo) . PHP_EOL;

@@ -109,6 +109,8 @@ function strip_tmpl($s): string
 function get_tmpl($s): string
 {
     $a = explode('.', $s);
+    $value = array_shift($a);
+    $value = preg_replace('/^_/', '', $value);
 
-    return array_shift($a);
+    return $value;
 }
