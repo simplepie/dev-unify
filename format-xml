@@ -1,0 +1,42 @@
+#! /usr/bin/env php
+<?php
+declare(strict_types=1);
+\error_reporting(-1);
+
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/functions.php';
+
+use Symfony\Component\Finder\Finder;
+
+
+//******************************************************************************
+// Update files
+
+$__files__ = [
+    'phpunit.xml.dist',
+];
+
+foreach ($__files__ as $__f__) {
+    $finder = Finder::create()
+        ->files()
+        ->name($__f__)
+        ->depth('< 2')
+        ->in(dirname(__DIR__))
+        ->notPath('vendor')
+    ;
+
+    foreach ($finder as $file) {
+        $path = $file->getRealPath();
+
+        $domxml = new DOMDocument('1.0');
+        $domxml->preserveWhiteSpace = false;
+        $domxml->formatOutput = true;
+
+        $domxml->load($path);
+        $domxml->save($path);
+
+        echo sprintf('Completed %s', $path) . PHP_EOL;
+    }
+
+    unset($finder);
+}

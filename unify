@@ -43,8 +43,8 @@ foreach ($__files__ as $__f__) {
 
         $contents = preg_replace_callback('/@@([^@]+)@@/S', function(array $matches) use (&$__f__): string {
             [$tag, $directive] = $matches;
-            $variables = explode(';', $directive);
-            $file = array_shift($variables);
+            $variables         = explode(';', $directive);
+            $file              = array_shift($variables);
 
             $tmpl = trim(
                 file_get_contents(
