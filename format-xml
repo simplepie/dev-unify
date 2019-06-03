@@ -13,6 +13,9 @@ use Symfony\Component\Finder\Finder;
 // Update files
 
 $__files__ = [
+    'pdepend.xml.dist',
+    'phpcs.xml',
+    'phpmd.xml.dist',
     'phpunit.xml.dist',
 ];
 
