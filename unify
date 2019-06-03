@@ -16,6 +16,7 @@ $__files__ = [
     'README.md.tmpl',
     'Makefile.tmpl',
     '_php_cs.dist.tmpl',
+    'phpunit.xml.dist.tmpl',
 ];
 
 foreach ($__files__ as $__f__) {
