@@ -28,12 +28,23 @@ foreach ($__files__ as $__f__) {
     foreach ($finder as $file) {
         $path = $file->getRealPath();
 
-        $domxml = new DOMDocument('1.0');
-        $domxml->preserveWhiteSpace = false;
-        $domxml->formatOutput = true;
+        // First pass
+        $domDocument = new DOMDocument('1.0');
+        $domDocument->recover             = true;
+        $domDocument->formatOutput        = true;
+        $domDocument->preserveWhiteSpace  = false;
+        $domDocument->resolveExternals    = false;
+        $domDocument->substituteEntities  = false;
+        $domDocument->strictErrorChecking = false;
+        $domDocument->validateOnParse     = false;
 
-        $domxml->load($path);
-        $domxml->save($path);
+        $domDocument->load($path);
+        $domDocument->save($path);
+
+        // Second pass
+        $content = file_get_contents($path);
+        $content = preg_replace('/&gt;/i', '>', $content);
+        file_put_contents($path, $content);
 
         echo sprintf('Completed %s', $path) . PHP_EOL;
     }
