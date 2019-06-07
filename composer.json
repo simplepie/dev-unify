@@ -1,27 +1,28 @@
 {
+    "type": "library",
+    "license": "Apache-2.0",
+    "readme": "README.md",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=7.2",
         "psr/log": "^1.1",
         "simplepie/utility-pack": "dev-master",
         "symfony/finder": "^4.2"
     },
-    "type": "library",
-    "license": "Apache-2.0",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require-dev": {
         "bramus/monolog-colored-line-formatter": "^3.0",
         "friendsofphp/php-cs-fixer": "^2.14",
         "mamuz/php-dependency-analysis": "dev-master",
         "monolog/monolog": "^1.24",
         "pdepend/pdepend": "^2.5",
-        "php": null,
         "php-coveralls/php-coveralls": "^2.0",
         "phploc/phploc": "^5.0",
         "phpmetrics/phpmetrics": "^2.4",
         "phpunit/phpunit": "^8.1",
         "sebastian/phpcpd": "^4.0",
         "squizlabs/php_codesniffer": "dev-master",
+        "vimeo/psalm": "^3.4",
         "wapmorgan/php-code-analyzer": "^1.0"
     },
     "config": {
@@ -32,6 +33,5 @@
     "suggest": {
         "bramus/monolog-colored-line-formatter": "Color-codes your Monolog messages by severity.",
         "monolog/monolog": "A high-quality PSR-3 logging library."
-    },
-    "readme": "README.md"
+    }
 }

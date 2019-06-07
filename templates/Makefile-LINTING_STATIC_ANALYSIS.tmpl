@@ -40,3 +40,7 @@ analyze: lint test
 	@ echo " "
 	@ echo "=====> Comparing Composer dependencies against the PHP Security Advisories Database..."
 	- curl -sSL -H "Accept: text/plain" https://security.symfony.com/check_lock -F lock=@composer.lock | tee reports/sensiolabs.txt
+
+	@ echo " "
+	@ echo "=====> Running Psalm..."
+	- bin/psalm --find-unused-code=always --generate-json-map=./reports/psalm.json --output-format=console --show-info=true --show-snippet=true --stats --threads=$$(nproc) --php-version=7.2

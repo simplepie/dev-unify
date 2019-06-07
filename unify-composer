@@ -32,6 +32,9 @@ foreach ($finder as $file) {
 
     // Delete the things we want to remove
     unset($merged['require-dev']['codeclimate/php-test-reporter']);
+    unset($merged['require-dev']['skyzyx/utility-pack']);
+
+    unset($merged['require']['skyzyx/utility-pack']);
 
     // Sort the results
     natkeysort($merged['config']);
