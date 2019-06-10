@@ -12,6 +12,10 @@ use Symfony\Component\Finder\Finder;
 //******************************************************************************
 // Update files
 
+/**
+ * This will reformat the XML files and save the changes to disk.
+ */
+
 $__files__ = [
     'pdepend.xml.dist',
     'phpcs.xml',

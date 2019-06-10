@@ -49,7 +49,7 @@ phpca:
 licenses:
 	@ echo " "
 	@ echo "=====> Running Open-Source License Check..."
-	- composer licenses | grep -v BSD-.-Clause | grep -v MIT | grep -v Apache-2.0 | tee reports/licenses.txt
+	- composer licenses | grep -v BSD-.-Clause | grep -v MIT | grep -v Apache-2.0 | grep -v ISC | tee reports/licenses.txt
 
 .PHONY: vulns
 vulns:
@@ -64,4 +64,4 @@ psalm:
 	- bin/psalm --find-unused-code=always --generate-json-map=./reports/psalm.json --output-format=console --show-info=true --show-snippet=true --stats --threads=$$(nproc) --php-version=7.2
 
 .PHONY: analyze
-analyze: lint test phpcpd phploc phpca licenses vulns analyze
+analyze: lint test phpcpd phploc phpca licenses vulns

@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <psalm
     addParamDefaultToDocblockType="true"
     allowCoercionFromStringToClassConst="false"
@@ -27,15 +26,3 @@
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
 >
-    <projectFiles>
-        <directory name="src" />
-        <ignoreFiles>
-            <directory name="vendor/" />
-        </ignoreFiles>
-    </projectFiles>
-
-    <issueHandlers>
-        <LessSpecificReturnType errorLevel="info" />
-        <PossiblyUnusedMethod errorLevel="suppress" />
-    </issueHandlers>
-</psalm>

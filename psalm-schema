@@ -1,0 +1,69 @@
+#! /usr/bin/env php
+<?php
+declare(strict_types=1);
+\error_reporting(-1);
+
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/functions.php';
+
+define('NS_XS', 'http://www.w3.org/2001/XMLSchema');
+
+
+//******************************************************************************
+// Update files
+
+/**
+ * Firstly, run `make psalm` to fetch the latest Psalm schema.
+ *
+ * Next, this script will parse through the schema file to get a list of the
+ * "Issue Types" currently supported by Psalm. It will generate a new "template"
+ * file that is used for the `@@VENDOR@@` token in `psalm.xml`.
+ *
+ * This is to work around a bug where `vendor` is not ignored correctly despite
+ * a correct top-level definition.
+ *
+ * This hack is hopefully temporary.
+ */
+
+// Parse schema
+$domDocument = new DOMDocument('1.0');
+$domDocument->recover             = true;
+$domDocument->formatOutput        = true;
+$domDocument->preserveWhiteSpace  = false;
+$domDocument->resolveExternals    = false;
+$domDocument->substituteEntities  = false;
+$domDocument->strictErrorChecking = false;
+$domDocument->validateOnParse     = false;
+
+$domDocument->load(__DIR__ . '/psalm-schema.xml');
+$complexTypes = $domDocument->getElementsByTagNameNS(NS_XS, 'complexType');
+$issueTypes   = [];
+
+foreach ($complexTypes as $complexType) {
+    if (count($complexType->attributes) > 0) {
+        if ('IssueHandlersType' === (string) $complexType->attributes->getNamedItem('name')->value) {
+            $elements = $complexType->getElementsByTagNameNS(NS_XS, 'element');
+
+            foreach ($elements as $element) {
+                if (count($element->attributes) > 0) {
+                    $issueTypes[] = (string) $element->attributes->getNamedItem('name')->value;
+                }
+            }
+        }
+    }
+}
+
+$issueTypes = array_unique($issueTypes);
+sort($issueTypes);
+
+$template = [
+    '        <!-- Psalm is broken and doesn\'t obey ignoring directories at the top level -->',
+];
+
+foreach ($issueTypes as $issueType) {
+    $template[] = <<<EOF
+        <{$issueType}><errorLevel type="suppress"><directory name="vendor" /></errorLevel></{$issueType}>
+EOF;
+}
+
+file_put_contents(__DIR__ . '/templates/PSALM-VENDOR.tmpl', implode("\n", $template) . "\n");

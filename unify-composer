@@ -12,6 +12,14 @@ use Symfony\Component\Finder\Finder;
 //******************************************************************************
 // Update composer.json files
 
+/**
+ * This will read the existing `composer.json` file, merge-in certain entries,
+ * remove known-outdated repositories, then do some custom sorting on some of
+ * the values (e.g., `php` at the top of the required packages).
+ *
+ * It will then re-format the JSON and write the changes back to disk.
+ */
+
 $jsonOpts = JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
 
 $finder = Finder::create()

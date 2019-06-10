@@ -12,6 +12,13 @@ use Symfony\Component\Finder\Finder;
 //******************************************************************************
 // Update files
 
+/**
+ * Any files which match `static/*.tmpl` are written to a new file in the
+ * correct location in the repository's file system.
+ *
+ * No token replacement occurs.
+ */
+
 $finder = Finder::create()
     ->ignoreDotFiles(false)
     ->files()

@@ -12,11 +12,24 @@ use Symfony\Component\Finder\Finder;
 //******************************************************************************
 // Update files
 
+/**
+ * We take certain whitelisted files, and do token replacement on them.
+ *
+ * For these files, there are tokens which start/end with `@@`. This script will
+ * review those files, look at the tokens, and try to find a file in the
+ * `templates/` directory with an appropriate file name.
+ *
+ * The contents of that file are read, and injected into the whitelisted files,
+ * replacing the token. The results are written to a new file in the correct
+ * location in the repository's file system.
+ */
+
 $__files__ = [
-    'README.md.tmpl',
-    'Makefile.tmpl',
     '_php_cs.dist.tmpl',
+    'Makefile.tmpl',
     'phpunit.xml.dist.tmpl',
+    'psalm.xml.tmpl',
+    'README.md.tmpl',
 ];
 
 foreach ($__files__ as $__f__) {
