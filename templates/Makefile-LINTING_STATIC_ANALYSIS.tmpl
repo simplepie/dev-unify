@@ -8,7 +8,6 @@ phpcsfixer:
 	@ echo "=====> Running PHP CS Fixer..."
 	- bin/php-cs-fixer fix -vvv
 
-
 .PHONY: phpcs
 phpcs:
 	@ echo " "
@@ -24,6 +23,10 @@ phpcs:
 
 .PHONY: lint
 lint: mkdir phpcsfixer phpcs
+
+.PHONY: xdebug
+xdebug:
+	bin/phpunit --dump-xdebug-filter tests/phpunit-xdebug-coverage.php
 
 .PHONY: phpcpd
 phpcpd:
