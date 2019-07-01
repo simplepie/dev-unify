@@ -44,7 +44,7 @@ foreach ($finder as $file) {
     unset($merged['require']['skyzyx/utility-pack']);
 
     // Do not include itself
-    if ('simplepie/utility-pack' === $json['name']) {
+    if (isset($json['name']) && 'simplepie/utility-pack' === $json['name']) {
         unset($merged['require']['simplepie/utility-pack']);
     }
 
