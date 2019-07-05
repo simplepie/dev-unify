@@ -1,9 +1,15 @@
-PSR-1/2/5/12/19 are a solid foundation, but are not an entire coding style by themselves. By leveraging tools such as [PHP CS Fixer](http://cs.sensiolabs.org) and [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer), we can automate a large part of our style requirements.
+PSR-1/2/5/12/19 are a solid foundation, but are not an entire coding style by themselves. We automate a large part of our style requirements using [PHP CS Fixer](http://cs.sensiolabs.org) and [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer). (The things that we cannot yet automate are documented here: <https://github.com/simplepie/simplepie-ng-coding-standards>.)
 
-These can be applied automatically by running the linter:
+These can be applied/fixed automatically by running the linter:
 
 ```bash
 make lint
 ```
 
-The things that we cannot yet automate are documented here: <https://github.com/simplepie/simplepie-ng-coding-standards>
+Additionally, in our quest to write excellent code, we use a variety of tools to help us catch issues with what we've written, including:
+
+| Type | Description |
+| ---- | ----------- |
+| Linting Tools | [PHP CS Fixer](http://cs.sensiolabs.org), [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) |
+| QA Tools | [PDepend](https://github.com/pdepend/pdepend), [PHPLOC](https://github.com/sebastianbergmann/phploc), [PHP Copy/Paste Detector](https://github.com/sebastianbergmann/phpcpd), [PHP Code Analyzer](https://github.com/wapmorgan/PhpCodeAnalyzer) |
+| Static Analysis | [Phan](https://github.com/phan/phan), [PHPStan](https://github.com/phpstan/phpstan), [Psalm](https://github.com/vimeo/psalm), [PHP Dependency Analysis](https://github.com/mamuz/PhpDependencyAnalysis) |
