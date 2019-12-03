@@ -26,6 +26,10 @@
         <ImplementedParamTypeMismatch><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ImplementedParamTypeMismatch>
         <ImplementedReturnTypeMismatch><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ImplementedReturnTypeMismatch>
         <ImplicitToStringCast><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ImplicitToStringCast>
+        <ImpureFunctionCall><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ImpureFunctionCall>
+        <ImpureMethodCall><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ImpureMethodCall>
+        <ImpurePropertyAssignment><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ImpurePropertyAssignment>
+        <ImpureStaticVariable><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ImpureStaticVariable>
         <InaccessibleClassConstant><errorLevel type="suppress"><directory name="vendor" /></errorLevel></InaccessibleClassConstant>
         <InaccessibleMethod><errorLevel type="suppress"><directory name="vendor" /></errorLevel></InaccessibleMethod>
         <InaccessibleProperty><errorLevel type="suppress"><directory name="vendor" /></errorLevel></InaccessibleProperty>
@@ -51,6 +55,7 @@
         <InvalidNullableReturnType><errorLevel type="suppress"><directory name="vendor" /></errorLevel></InvalidNullableReturnType>
         <InvalidOperand><errorLevel type="suppress"><directory name="vendor" /></errorLevel></InvalidOperand>
         <InvalidParamDefault><errorLevel type="suppress"><directory name="vendor" /></errorLevel></InvalidParamDefault>
+        <InvalidParent><errorLevel type="suppress"><directory name="vendor" /></errorLevel></InvalidParent>
         <InvalidPassByReference><errorLevel type="suppress"><directory name="vendor" /></errorLevel></InvalidPassByReference>
         <InvalidPropertyAssignment><errorLevel type="suppress"><directory name="vendor" /></errorLevel></InvalidPropertyAssignment>
         <InvalidPropertyAssignmentValue><errorLevel type="suppress"><directory name="vendor" /></errorLevel></InvalidPropertyAssignmentValue>
@@ -80,6 +85,7 @@
         <MissingDependency><errorLevel type="suppress"><directory name="vendor" /></errorLevel></MissingDependency>
         <MissingDocblockType><errorLevel type="suppress"><directory name="vendor" /></errorLevel></MissingDocblockType>
         <MissingFile><errorLevel type="suppress"><directory name="vendor" /></errorLevel></MissingFile>
+        <MissingImmutableAnnotation><errorLevel type="suppress"><directory name="vendor" /></errorLevel></MissingImmutableAnnotation>
         <MissingParamType><errorLevel type="suppress"><directory name="vendor" /></errorLevel></MissingParamType>
         <MissingPropertyType><errorLevel type="suppress"><directory name="vendor" /></errorLevel></MissingPropertyType>
         <MissingReturnType><errorLevel type="suppress"><directory name="vendor" /></errorLevel></MissingReturnType>
@@ -123,6 +129,7 @@
         <ParadoxicalCondition><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ParadoxicalCondition>
         <ParentNotFound><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ParentNotFound>
         <PluginIssue><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PluginIssue>
+        <PossibleRawObjectIteration><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossibleRawObjectIteration>
         <PossiblyFalseArgument><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyFalseArgument>
         <PossiblyFalseIterator><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyFalseIterator>
         <PossiblyFalseOperand><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyFalseOperand>
@@ -153,7 +160,9 @@
         <PossiblyNullReference><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyNullReference>
         <PossiblyUndefinedArrayOffset><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyUndefinedArrayOffset>
         <PossiblyUndefinedGlobalVariable><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyUndefinedGlobalVariable>
+        <PossiblyUndefinedIntArrayOffset><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyUndefinedIntArrayOffset>
         <PossiblyUndefinedMethod><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyUndefinedMethod>
+        <PossiblyUndefinedStringArrayOffset><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyUndefinedStringArrayOffset>
         <PossiblyUndefinedVariable><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyUndefinedVariable>
         <PossiblyUnusedMethod><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyUnusedMethod>
         <PossiblyUnusedParam><errorLevel type="suppress"><directory name="vendor" /></errorLevel></PossiblyUnusedParam>
@@ -165,6 +174,8 @@
         <RedundantConditionGivenDocblockType><errorLevel type="suppress"><directory name="vendor" /></errorLevel></RedundantConditionGivenDocblockType>
         <ReferenceConstraintViolation><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ReferenceConstraintViolation>
         <ReservedWord><errorLevel type="suppress"><directory name="vendor" /></errorLevel></ReservedWord>
+        <StringIncrement><errorLevel type="suppress"><directory name="vendor" /></errorLevel></StringIncrement>
+        <TaintedInput><errorLevel type="suppress"><directory name="vendor" /></errorLevel></TaintedInput>
         <TooFewArguments><errorLevel type="suppress"><directory name="vendor" /></errorLevel></TooFewArguments>
         <TooManyArguments><errorLevel type="suppress"><directory name="vendor" /></errorLevel></TooManyArguments>
         <TooManyTemplateParams><errorLevel type="suppress"><directory name="vendor" /></errorLevel></TooManyTemplateParams>
@@ -191,12 +202,16 @@
         <UnimplementedAbstractMethod><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnimplementedAbstractMethod>
         <UnimplementedInterfaceMethod><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnimplementedInterfaceMethod>
         <UninitializedProperty><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UninitializedProperty>
+        <UnnecessaryVarAnnotation><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnnecessaryVarAnnotation>
         <UnrecognizedExpression><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnrecognizedExpression>
         <UnrecognizedStatement><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnrecognizedStatement>
         <UnresolvableInclude><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnresolvableInclude>
         <UnusedClass><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnusedClass>
         <UnusedClosureParam><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnusedClosureParam>
+        <UnusedFunctionCall><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnusedFunctionCall>
         <UnusedMethod><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnusedMethod>
+        <UnusedMethodCall><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnusedMethodCall>
         <UnusedParam><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnusedParam>
         <UnusedProperty><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnusedProperty>
+        <UnusedPsalmSuppress><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnusedPsalmSuppress>
         <UnusedVariable><errorLevel type="suppress"><directory name="vendor" /></errorLevel></UnusedVariable>
